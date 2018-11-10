@@ -106,8 +106,8 @@ add_action( 'after_setup_theme', 'art_theme_by_champ_v_2_content_width', 0 );
  */
 function art_theme_by_champ_v_2_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'footer-1', 'art_theme_by_champ_v_2' ),
-		'id'            => 'footer-1',
+		'name'          => esc_html__( 'footer-01', 'art_theme_by_champ_v_2' ),
+		'id'            => 'footer-01',
 		'description'   => esc_html__( 'Add widgets here.', 'art_theme_by_champ_v_2' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
@@ -116,8 +116,8 @@ function art_theme_by_champ_v_2_widgets_init() {
 	));
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'footer-2', 'art_theme_by_champ_v_2' ),
-		'id'            => 'footer-2',
+		'name'          => esc_html__( 'footer-02', 'art_theme_by_champ_v_2' ),
+		'id'            => 'footer-02',
 		'description'   => esc_html__( 'Add widgets here.', 'art_theme_by_champ_v_2' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
@@ -125,8 +125,8 @@ function art_theme_by_champ_v_2_widgets_init() {
 		'after_title'   => '</h2>',
 	));
 	register_sidebar( array(
-		'name'          => esc_html__( 'footer-3', 'art_theme_by_champ_v_2' ),
-		'id'            => 'footer-3',
+		'name'          => esc_html__( 'footer-03', 'art_theme_by_champ_v_2' ),
+		'id'            => 'footer-03',
 		'description'   => esc_html__( 'Add widgets here.', 'art_theme_by_champ_v_2' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
@@ -134,8 +134,8 @@ function art_theme_by_champ_v_2_widgets_init() {
 		'after_title'   => '</h2>',
 	));
 	register_sidebar( array(
-		'name'          => esc_html__( 'footer-4', 'art_theme_by_champ_v_2' ),
-		'id'            => 'footer-4',
+		'name'          => esc_html__( 'footer-04', 'art_theme_by_champ_v_2' ),
+		'id'            => 'footer-04',
 		'description'   => esc_html__( 'Add widgets here.', 'art_theme_by_champ_v_2' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
@@ -321,4 +321,34 @@ function misha_column_content( $column, $id ){
 }
 add_action('manage_posts_custom_column', 'misha_column_content', 5, 2);
 //add_action('manage_pages_custom_column', 'misha_column_content', 5, 2); // for Pages
+
+/*
+|--------------------------------------------------------------------------
+| Prepare REST
+|--------------------------------------------------------------------------
+*/
+
+function prepare_rest($data, $post, $request){
+    $_data = $data->data;
+
+    // Thumbnails
+    $thumbnail_id = get_post_thumbnail_id( $post->ID );
+    $thumbnail300x180 = wp_get_attachment_image_src( $thumbnail_id, '300x180' );
+    $thumbnailMedium = wp_get_attachment_image_src( $thumbnail_id, 'medium' );
+
+    //Categories
+    $cats = get_the_category($post->ID);
+
+    
+
+    $_data['fi_300x180'] = $thumbnail300x180[0];
+    $_data['fi_medium'] = $thumbnailMedium[0];
+    $_data['cats'] = $cats;
+    $data->data = $_data;
+
+    
+
+    return $data;
+}
+add_filter('rest_prepare_post', 'prepare_rest', 10, 3);
 

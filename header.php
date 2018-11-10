@@ -17,6 +17,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<link href="https://fonts.googleapis.com/css?family=Krub" rel="stylesheet">
+	<link rel="icon" href="https://sv1.picz.in.th/images/2018/11/11/3ih39N.png" type="image/gif">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" rel="stylesheet">
 	<link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">

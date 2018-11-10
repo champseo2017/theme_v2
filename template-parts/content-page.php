@@ -22,17 +22,19 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 	<article class="row">
-        <section  v-bind:style="bgc" class="two fourths right-one padded bounceInDown animated">
+        <section id="blog_home_01" v-bind:style="bgc" class="two fourths right-one padded bounceInDown animated">
 		<?php
  		if ( has_post_thumbnail()) {
-    	$large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large');
-    	echo '<img src="'.$large_image_url[0].'">';
- 		}
+      $thumbnail_id = get_post_thumbnail_id();
+      $image_alt = get_post_meta( $thumbnail_id, '_wp_attachment_image_alt', true);
+      $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large');
+    	echo '<img src="'.$large_image_url[0].'" alt="'.$image_alt.'">';
+ 		}else{
+      echo '<img src="https://sv1.picz.in.th/images/2018/11/10/3iYUbn.png" alt="no upload images">';
+     }
  		?>
 		<p><?php the_excerpt(); ?></p>
 		</section>
-    
-
 		 <aside id="aside_01"  class="one fourth left-two padded border-right bounceInLeft animated display_m" >
           <p><b>Design website</b></p>
           <div class="row">
@@ -85,30 +87,63 @@
       </article>
 	  <article class="row bounceInUp animated">
         <section class="one third padded">
-          <h3>Section Heading 3</h3>
+          <h3 id="blog_title_section_01"></h3>
           <div class="row">
-            <div class="two-up-small-tablet one-up-mobile align-center"><img src="http://placehold.it/380x200/f02475/ffffff/" alt=""></div>
-            <div class="two-up-small-tablet one-up-mobile">
-              <p class="padded no-pad-mobile">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices.</p>
+            <div class="two-up-small-tablet one-up-mobile align-center">
+              <?php
+                $thumbnail380x200 = '';
+ 		            if ( has_post_thumbnail()) {
+                  $thumbnail_id = get_post_thumbnail_id(23);
+                  $image_alt = get_post_meta( $thumbnail_id, '_wp_attachment_image_alt', true);
+                  $thumbnail380x200 = wp_get_attachment_image_src( $thumbnail_id, '380x200' );
+    	          echo '<img style="height: 200px;width: 380px;" src="'.$thumbnail380x200[0].'" alt="'.$image_alt.'">';
+                 }
+                 if($thumbnail380x200 == null){
+                  echo '<img style="height: 200px;width: 380px;" src="https://sv1.picz.in.th/images/2018/11/11/3ibIYf.png" alt="no upload images">';
+                 }
+ 		          ?>
             </div>
+            <div class="two-up-small-tablet one-up-mobile" id="blog_content_section_01"></div>
           </div>
         </section>
         <section class="one third padded">
-          <h3>Section Heading 3</h3>
+          <h3 id="blog_title_section_02"></h3>
           <div class="row">
-            <div class="two-up-small-tablet one-up-mobile align-center"><img src="http://placehold.it/380x200/1abc9c/ffffff/" alt=""></div>
-            <div class="two-up-small-tablet one-up-mobile">
-              <p class="padded no-pad-mobile">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices.</p>
+            <div class="two-up-small-tablet one-up-mobile align-center">
+               <?php
+                $thumbnail380x200 = '';
+ 		            if ( has_post_thumbnail()) {
+                  $thumbnail_id = get_post_thumbnail_id(10);
+                  $image_alt = get_post_meta( $thumbnail_id, '_wp_attachment_image_alt', true);
+                  $thumbnail380x200 = wp_get_attachment_image_src( $thumbnail_id, '380x200' );
+    	          echo '<img style="height: 200px;width: 380px;" src="'.$thumbnail380x200[0].'" alt="'.$image_alt.'">';
+                 }
+                 if($thumbnail380x200 == null){
+                  echo '<img style="height: 200px;width: 380px;" src="https://sv1.picz.in.th/images/2018/11/11/3ibIYf.png" alt="no upload images">';
+                 }
+ 		            ?>
             </div>
+            <div class="two-up-small-tablet one-up-mobile" id="blog_content_section_02"></div>
           </div>
         </section>
         <section class="one third padded">
-          <h3>Section Heading 3</h3>
+        <h3 id="blog_title_section_03"></h3>
           <div class="row">
-            <div class="two-up-small-tablet one-up-mobile align-center"><img src="http://placehold.it/380x200/34495e/ffffff/" alt=""></div>
-            <div class="two-up-small-tablet one-up-mobile">
-              <p class="padded no-pad-mobile">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices.</p>
+            <div class="two-up-small-tablet one-up-mobile align-center">
+               <?php
+                $thumbnail380x200 = '';
+ 		            if ( has_post_thumbnail()) {
+                  $thumbnail_id = get_post_thumbnail_id(6);
+                  $image_alt = get_post_meta( $thumbnail_id, '_wp_attachment_image_alt', true);
+                  $thumbnail380x200 = wp_get_attachment_image_src( $thumbnail_id, '380x200' );
+    	          echo '<img style="height: 200px;width: 380px;" src="'.$thumbnail380x200[0].'" alt="'.$image_alt.'">';
+                 }
+                 if($thumbnail380x200 == null){
+                  echo '<img style="height: 200px;width: 380px;" src="https://sv1.picz.in.th/images/2018/11/11/3ibIYf.png" alt="no upload images">';
+                 }
+ 		            ?>
             </div>
+            <div class="two-up-small-tablet one-up-mobile" id="blog_content_section_03"></div>
           </div>
         </section>
       </article>
