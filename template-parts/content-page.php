@@ -82,6 +82,20 @@
                 }
             ?>
             </div>
+            <div class="one whole two-up-small-tablet one-up-mobile" id="sidebar-03">
+            <?php
+                if(is_active_sidebar('sidebar-03')){
+                dynamic_sidebar('sidebar-03');
+                }
+            ?>
+            </div>
+            <div class="one whole two-up-small-tablet one-up-mobile" id="sidebar-04">
+            <?php
+                if(is_active_sidebar('sidebar-04')){
+                dynamic_sidebar('sidebar-04');
+                }
+            ?>
+            </div>
           </div>
         </aside>
       </article>

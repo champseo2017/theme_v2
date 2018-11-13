@@ -58,15 +58,25 @@
         </div>
       </div>
       </footer>
+      <!-- Back to top button -->
+<div id="button"></div>
      
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
+ 
+ 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/chromatism/3.0.0/chromatism.umd.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+
+  
+  
   <script src="<?php bloginfo('template_url'); ?>/app/home_page.js"></script>
   <script src="<?php bloginfo('template_url'); ?>/app/text_01.js"></script>
+  <script src="<?php bloginfo('template_url'); ?>/app/black_to_top.js"></script>
+ 
+  
      <script>
     $(document).ready(function(){
   	$('nav').removeAttr( "title" );
@@ -120,6 +130,14 @@
       $('#blog_content_section_03').append(blog_content_03);
       $('#blog_content_section_03 p:nth-child(1)').addClass('padded no-pad-mobile');
   }
+
+
+
+
+  
+
+
+
 });
 </script>
 
